@@ -64,3 +64,47 @@ class Welcome extends React.Component {
 ## Estado e Ciclo de vida
 
 
+
+## List and Keys
+
+Em react listas são iteradas usando `maps`. Segue um exemplo:
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map((number) => number * 2);
+console.log(doubled);
+```
+
+O exemplo acima gera a seguinte saída `[2, 4, 6, 8, 10]`.
+É possível renderizar a lista dentro de componentes. Para listas não ordenadas é recomendado
+utilizar um elemento chave para indetificar o componente, como por exemplo:
+
+```javascript
+const todoItems = todos.map((todo) =>
+  <li key={todo.id}>
+    {todo.text}
+  </li>
+);
+```
+
+Em linhas gerais pode-se usar a regra: Quando um componente é renderizado dentro de um map, é necessário colocar uma key em cada elemento.
+Keys servem para entendimento do React, portanto, elas não são passadas
+para elementos filhos
+
+```javascript
+const content = posts.map((post) =>
+  <Post
+    key={post.id}
+    id={post.id}
+    title={post.title} />
+);
+```
+
+> Keys devem ser unicas em elementos irmãos, entretanto não precisam ser unica globalmente. Componentes podem ter key identicas desde que 
+> respeitem a regra
+
+## Formulários
+
+Muitas vezes queremos interceptar submissão de um formulário para manipular os dados. Em React combinamos o formulário com o estado de um componente. Dessa forma, um componente que renderiza um formulário também controla o que acontece no formulário e subsequentemente na entrada dos daodos pelo usuário.
+
+## Lifting state up

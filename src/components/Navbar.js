@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
 import logo from '../assets/img/logo.svg';
 
-import 'react-dom'
+import React, { Component } from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+import {LinkContainer} from 'react-router-bootstrap';
+
 
 class NavbarPage extends Component{
     render(){
         return (
-              <Navbar inverse collapseOnSelect>
+            <Navbar inverse collapseOnSelect>
+
                 <Navbar.Header>
                     <Navbar.Brand>
                         <a href="#"> 
@@ -16,17 +23,17 @@ class NavbarPage extends Component{
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
+
                 <Navbar.Collapse>
-                <Nav>
-                    <NavItem eventKey={1} href="#">Link</NavItem>
-                    <NavItem eventKey={2} href="#">Link</NavItem>                   
-                </Nav>
-                <Nav pullRight>
-                    <NavItem eventKey={1} href="#">Link Right</NavItem>
-                    <NavItem eventKey={2} href="#">Link Right</NavItem>
-                </Nav>
+                    <Nav>
+                        <LinkContainer to="/">Home</LinkContainer>
+                        <NavItem eventKey={2} href="#">Coverter</NavItem>                   
+                    </Nav>
+                    <Nav pullRight>
+                        <NavItem eventKey={2} href="#">Sair</NavItem>
+                    </Nav>
                 </Navbar.Collapse>
-            </Navbar>
+            </Navbar>               
         );
     }
 }
